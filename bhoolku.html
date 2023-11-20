@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New bhoolku</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <form>
+                <div class="step step-1 active">
+                    <div class="form-group">
+                        <!-- <label for="name">Full Name</label> -->
+                        <input type="text" id="name" name="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="phone">Phone</label> -->
+                        <input type="text" id="phone" name="phone" placeholder="Phone No." required>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="dateOfbirth">Date of Birth</label> -->
+                        <!-- <input type="date" id="dateOfbirth" name="dateOfbirth" aria-placeholder="DOB" required> -->
+                        <input type="text" id="dateOfbirth" name="dateOfbirth" placeholder="Date Of Birth"
+                            onfocus="(this.type='date')" required>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="email">Email</label> -->
+                        <input type="email" id="email" name="email" placeholder="Email Id" required>
+                    </div>
+                    <button type="button" class="next round">&#8250;</button>
+                </div>
+                <div class="step step-2">
+                    <div class="form-group">
+                        <!-- <label for="category">Category</label> -->
+
+                        <select type="text" name="category" id="categry">
+                            <option value="Balyuvak">Balyuvak</option>
+                            <option value="Yuva">Yuva</option>
+                            <option value="Yuvati">Yuvati</option>
+                            <option value="Balika">Balika</option>
+                        </select>
+                        <!-- <input type="text" id="category" name="category" placeholder="Enter Sabha Category" required>  -->
+                    </div>
+
+                    <div class="form-group">
+                        <!-- <label for="mandal">Mandal</label> -->
+                        <input type="text" id="mandal" name="mandal" placeholder="Mandal">
+                    </div>
+
+                    <div class="form-group">
+                        <!-- <label for="referanceBhoolku">Referance</label> -->
+                        <input type="text" id="referanceBhoolku" name="referanceBhoolku"
+                            placeholder="Enter Refferance Name" required>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <label for="bloodGroup">Blood Group</label>
+                        <!-- <input type="text" id="bloodGroup" name="bloodGroup" placeholder="Enter Refferance Name" placeholder="Optional">  -->
+                        <select name="bloodGroup" id="bloodGroup">
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="None" selected></option>
+                        </select>
+                    </div>
+                    <button type="button" class="previous round">&#8249;</button>
+                    <input type="submit" value="Submit" class="submit">
+                </div>
+
+            </form>
+        </div>
+    </section>
+    <script src="script.js">
+        
+    </script>
+</body>
+
+</html>
