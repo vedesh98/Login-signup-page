@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown without Box</title>
+    <style>
+        /* CSS goes here */
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+
+        .dropdown select {
+            padding: 5px 10px;
+            border: none;
+            background-color: transparent;
+            font-family: inherit;
+            font-size: inherit;
+            color: inherit;
+            appearance: none;
+        }
+
+        .dropdown select:focus {
+            outline: none;
+        }
+
+        .dropdown-arrow {
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <select id="dropdown">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+        </select>
+        <span class="dropdown-arrow">▾</span>
+    </div>
+</body>
+</html>
