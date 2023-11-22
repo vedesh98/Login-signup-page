@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
     <br>
     <br>
     <div class="cont">
@@ -83,18 +82,22 @@
                 <div class="step step-2">
 
                     <label>
-                        <span>Category</span>
-                        <input list="Browser" id="category" name = "category" required />
+                        <!-- <span>Category</span> -->
+                        <br>
+                        <input list="Browser" id="category" placeholder="Category" name="category" required />
                         <datalist id="Browser"></datalist>
                     </label>
                     <label>
-                        <span>Blood Group</span>
-                        <input list="bloodgroups" id="bloodgroup" required />
+                        <!-- <span>Blood Group</span> -->
+                        <br>
+                        <input list="bloodgroups" id="bloodgroup" placeholder="Blood Group" required />
                         <datalist id="bloodgroups"></datalist>
                     </label>
                     <label>
-                        <span>Mandal Name</span>
-                        <input type="text" />
+                        <br>
+                        <!-- <span>Mandal Name</span> -->
+                        <input list="mandals" id="mandal" placeholder="Mandal Name" />
+                        <datalist id="mandals"></datalist>
                     </label>
                     <button type="button" class="previous">Previous</button>
                     <button type="button" class="submit">Sign Up</button>

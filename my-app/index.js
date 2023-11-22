@@ -8,8 +8,8 @@ const app = express();
 require('dotenv').config();
 
 app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + '/node_modules'));
 
-// app.use(express.static(__dirname + '/public'));
 app.get('/login', function (req, res) {
     res.sendFile(__dirname + "/login.html");
 });
