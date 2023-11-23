@@ -10,7 +10,8 @@ const BloodGroup = ["A+", "A-", "B+", "B-", "O+", "O-", "AB-", "AB+", "None"];
 // const common = require("./css/common");
 // console.log(common);
 // const Categories = common.costants.Categories;
-// const BloodGroup = common.costants.BloodGroup;
+// const BloodGroup = common.co
+stants.BloodGroup;
 
 // Function for dropdown in form
 const DropDown = (ValueList, FieldId) => {
@@ -44,9 +45,6 @@ const form = document.querySelectorAll("form");
 
 const signup_in = document.querySelector('.img__btn');
 
-
-
-
 signup_in.addEventListener('click', function () {
   document.querySelector('.cont').classList.toggle('s--signup');
   console.log("signup---to login")
@@ -55,7 +53,6 @@ signup_in.addEventListener('click', function () {
 submBtn.forEach(async (button) => {
   button.addEventListener("click", async (e) => {
     console.log();
-      // await getMandalName());
   });
 });
 
