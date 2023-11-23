@@ -3,15 +3,10 @@ const nextBtn = document.querySelectorAll(".next");
 const prevBtn = document.querySelectorAll(".previous");
 const submBtn = document.querySelectorAll(".submit");
 
-
 const Categories = ["Balyuvak", "yuvak"];
 const BloodGroup = ["A+", "A-", "B+", "B-", "O+", "O-", "AB-", "AB+", "None"];
 
-// const common = require("./css/common");
-// console.log(common);
-// const Categories = common.costants.Categories;
-// const BloodGroup = common.co
-stants.BloodGroup;
+
 
 // Function for dropdown in form
 const DropDown = (ValueList, FieldId) => {
@@ -27,9 +22,6 @@ DropDown(Categories, "Browser");
 DropDown(BloodGroup, "bloodgroups");
 
 
-// const axios = require("axios/dist/axios");
-// // import axios from "axios/dist/browser/axios.cjs";
-// const url = "http://localhost:3000/mandals";
 const getMandalName = async () => {
   const response = await fetch('http://localhost:3000/mandals');
   const MandalName = await response.json();
@@ -51,8 +43,44 @@ signup_in.addEventListener('click', function () {
 });
 
 submBtn.forEach(async (button) => {
+  // button.addEventListener("click", async (e) => {
+  //   const body = {
+  //     email: document.getElementById("email").value,
+  //     password: document.getElementById("password").value
+  //   }
+  //   console.log(body);
+  //   const response = await fetch('http://localhost:3000/login', {
+  //     method: "POST", // *GET, POST, PUT, DELETE, etc.
+  //     mode: "cors", // no-cors, *cors, same-origin
+  //     body: JSON.stringify(body)
+  //   }
+  //   );
+  //   console.log(await response.json());
+
+
   button.addEventListener("click", async (e) => {
-    console.log();
+    const body = {
+      email: document.getElementById("email01").value,
+      password: document.getElementById("password01").value
+    }
+    console.log("sign");
+    console.log(body);
+    const response = await fetch('http://localhost:3000/user/signup', {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin 
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: "follow", // manual, *follow, error
+      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+     
+      body: JSON.stringify(body)
+    }
+    );
+    console.log(await response.json());
   });
 });
 
