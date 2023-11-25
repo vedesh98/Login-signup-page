@@ -2,6 +2,8 @@ const steps = Array.from(document.querySelectorAll(".step"));
 const nextBtn = document.querySelectorAll(".next");
 const prevBtn = document.querySelectorAll(".previous");
 const submBtn = document.querySelectorAll(".submit");
+// import controller from "./controllers/signUpLogin";
+// const controller = require();
 
 const Categories = ["Balyuvak", "yuvak"];
 const BloodGroup = ["A+", "A-", "B+", "B-", "O+", "O-", "AB-", "AB+", "None"];
@@ -9,10 +11,11 @@ const BloodGroup = ["A+", "A-", "B+", "B-", "O+", "O-", "AB-", "AB+", "None"];
 
 
 // Function for dropdown in form
-const DropDown = (ValueList, FieldId) => {
-  const options = ValueList.map(Name => `<option value="${Name}">`);
-  document.getElementById(FieldId).innerHTML = options.join('');
-};
+const DropDown = //controller.DropDown;
+  (ValueList, FieldId) => {
+    const options = ValueList.map(Name => `<option value="${Name}">`);
+    document.getElementById(FieldId).innerHTML = options.join('');
+  };
 
 
 // Dropdown for categories
@@ -58,7 +61,10 @@ submBtn.forEach(async (button) => {
   //   console.log(await response.json());
 
 
+
   button.addEventListener("click", async (e) => {
+
+
     const body = {
       email: document.getElementById("email01").value,
       password: document.getElementById("password01").value
@@ -76,7 +82,7 @@ submBtn.forEach(async (button) => {
       },
       redirect: "follow", // manual, *follow, error
       referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-     
+
       body: JSON.stringify(body)
     }
     );

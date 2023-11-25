@@ -46,16 +46,16 @@
                 <div class=" step step-1 active">
                     <label>
                         <span>Full Name</span>
-                        <input type="text" required />
+                        <input type="text" id = "name" required/>
                     </label>
 
                     <label>
                         <span>Refferance Name</span>
-                        <input type="text" required />
+                        <input type="text" id = "referanceName" required/>
                     </label>
                     <label>
                         <span>Phone</span>
-                        <input type="text" />
+                        <input type="text" id = "PhoneNo" required/>
                     </label>
                     <button type="button" class="next">Next</button>
 
@@ -69,7 +69,7 @@
                     </label>
                     <label>
                         <span>Date of Birth</span>
-                        <input type="date" />
+                        <input id = "dateOfBirth" type="date" />
                     </label>
                     <label>
                         <span>Password</span>
@@ -82,20 +82,20 @@
                 <div class="step step-2">
 
                     <label>
-                        <!-- <span>Category</span> -->
+                        <span>Category</span>
                         <br>
                         <input list="Browser" id="category" placeholder="Category" name="category" required />
                         <datalist id="Browser"></datalist>
                     </label>
                     <label>
-                        <!-- <span>Blood Group</span> -->
+                        <span>Blood Group</span>
                         <br>
                         <input list="bloodgroups" id="bloodgroup" placeholder="Blood Group" required />
                         <datalist id="bloodgroups"></datalist>
                     </label>
                     <label>
                         <br>
-                        <!-- <span>Mandal Name</span> -->
+                        <span>Mandal Name</span>
                         <input list="mandals" id="mandal" placeholder="Mandal Name" />
                         <datalist id="mandals"></datalist>
                     </label>

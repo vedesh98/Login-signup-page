@@ -6,9 +6,9 @@ const fs = require("fs");
 
 const app = express();
 require('dotenv').config();
-
+console.log(__dirname)
 app.use(express.static(__dirname + '/public'));
-// app.use(express.static(__dirname + '/node_modules'));
+
 
 app.get('/login', function (req, res) {
     res.sendFile(__dirname + "/login.html");
@@ -49,4 +49,4 @@ app.get("/video", async (req, res) => {
 
 });
 
-app.listen(process.env.PORT, ()=> { console.log("Listening on port 8000!"); } );
+app.listen(process.env.PORT, () => { console.log(`Listening on port ${process.env.PORT}!`); });
