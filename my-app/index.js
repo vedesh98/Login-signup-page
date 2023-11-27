@@ -1,13 +1,14 @@
 const { error } = require("console");
 const express = require("express");
+const app = express();
+require('dotenv').config();
 const fs = require("fs");
 
 
 
-const app = express();
-require('dotenv').config();
 console.log(__dirname)
 app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + '/src'));
 
 
 app.get('/login', function (req, res) {

@@ -1,7 +1,11 @@
+
+
 const steps = Array.from(document.querySelectorAll(".step"));
 const nextBtn = document.querySelectorAll(".next");
 const prevBtn = document.querySelectorAll(".previous");
 const submBtn = document.querySelectorAll(".submit");
+const form = document.querySelectorAll("form");
+const signup_in = document.querySelector('.img__btn');
 // import controller from "./controllers/signUpLogin";
 // const controller = require();
 
@@ -11,11 +15,11 @@ const BloodGroup = ["A+", "A-", "B+", "B-", "O+", "O-", "AB-", "AB+", "None"];
 
 
 // Function for dropdown in form
-const DropDown = //controller.DropDown;
-  (ValueList, FieldId) => {
-    const options = ValueList.map(Name => `<option value="${Name}">`);
-    document.getElementById(FieldId).innerHTML = options.join('');
-  };
+const DropDown = (ValueList, FieldId) => {
+  console.log(ValueList);
+  const options = ValueList.map(Name => `<option value="${Name}">`);
+  document.getElementById(FieldId).innerHTML = options.join('');
+};
 
 
 // Dropdown for categories
@@ -26,19 +30,23 @@ DropDown(BloodGroup, "bloodgroups");
 
 
 const getMandalName = async () => {
-  const response = await fetch('http://localhost:3000/mandals');
-  const MandalName = await response.json();
-  const nameList = MandalName.map(obj => obj.name)
-  console.log(nameList);
-  DropDown(nameList, "mandals");
+
+  try {
+
+    const response = await fetch('http://localhost:3000/mandals');
+    const MandalName = await response.json();
+    const nameList = await MandalName.map(obj => obj.name);
+    DropDown(nameList, "mandals");
+
+  } catch (error) {
+    console.log(error);
+  }
+
 }
 
 
 getMandalName();
 
-const form = document.querySelectorAll("form");
-
-const signup_in = document.querySelector('.img__btn');
 
 signup_in.addEventListener('click', function () {
   document.querySelector('.cont').classList.toggle('s--signup');
@@ -60,34 +68,35 @@ submBtn.forEach(async (button) => {
   //   );
   //   console.log(await response.json());
 
+  try {
 
+    button.addEventListener("click", async (e) => {
+      const body = {
+        email: document.getElementById("email01").value,
+        password: document.getElementById("password01").value
+      }
+      console.log("sign");
+      console.log(body);
+      const response = await fetch('http://localhost:3000/user/signup', {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin 
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
 
-  button.addEventListener("click", async (e) => {
+        body: JSON.stringify(body)
+      }
+      );
+    });
+  } catch (error) {
+    console.log(error);
+  }
 
-
-    const body = {
-      email: document.getElementById("email01").value,
-      password: document.getElementById("password01").value
-    }
-    console.log("sign");
-    console.log(body);
-    const response = await fetch('http://localhost:3000/user/signup', {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      mode: "cors", // no-cors, *cors, same-origin 
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin", // include, *same-origin, omit
-      headers: {
-        "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      redirect: "follow", // manual, *follow, error
-      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-
-      body: JSON.stringify(body)
-    }
-    );
-    console.log(await response.json());
-  });
 });
 
 nextBtn.forEach((button) => {
