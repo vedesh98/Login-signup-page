@@ -1,13 +1,11 @@
-
-
 const steps = Array.from(document.querySelectorAll(".step"));
 const nextBtn = document.querySelectorAll(".next");
 const prevBtn = document.querySelectorAll(".previous");
-const submBtn = document.querySelectorAll(".submit");
+const submBtnSign_In = document.querySelectorAll(".Sign_In");
+const submBtnSign_Up = document.querySelectorAll(".Sign_Up");
 const form = document.querySelectorAll("form");
 const signup_in = document.querySelector('.img__btn');
-// import controller from "./controllers/signUpLogin";
-// const controller = require();
+
 
 const Categories = ["Balyuvak", "yuvak"];
 const BloodGroup = ["A+", "A-", "B+", "B-", "O+", "O-", "AB-", "AB+", "None"];
@@ -53,20 +51,39 @@ signup_in.addEventListener('click', function () {
   console.log("signup---to login")
 });
 
-submBtn.forEach(async (button) => {
-  // button.addEventListener("click", async (e) => {
-  //   const body = {
-  //     email: document.getElementById("email").value,
-  //     password: document.getElementById("password").value
-  //   }
-  //   console.log(body);
-  //   const response = await fetch('http://localhost:3000/login', {
-  //     method: "POST", // *GET, POST, PUT, DELETE, etc.
-  //     mode: "cors", // no-cors, *cors, same-origin
-  //     body: JSON.stringify(body)
-  //   }
-  //   );
-  //   console.log(await response.json());
+submBtnSign_In.forEach(async (button) => {
+  try {
+    button.addEventListener("click", async (e) => {
+      const body = {
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value
+      }
+      console.log(body);
+      const response = await fetch('http://localhost:3000/user/login', {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+
+        body: JSON.stringify(body)
+      }
+      );
+      console.log(response.json());
+
+    });
+  } catch (error) {
+    console.error(error)
+  }
+});
+
+
+submBtnSign_Up.forEach(async (button) => {
 
   try {
 
@@ -90,8 +107,9 @@ submBtn.forEach(async (button) => {
         referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
 
         body: JSON.stringify(body)
-      }
-      );
+      });
+
+      console.log(response)
     });
   } catch (error) {
     console.log(error);
